@@ -121,10 +121,11 @@ class PretrainingConfig(object):
     else:
       self.max_seq_length = 512
       self.learning_rate = 2e-4
-        if self.model_size == "base":
-          self.embedding_size = 768
-          self.generator_hidden_size = 0.33333
-          self.train_batch_size = 256
+      
+      if self.model_size == "base":
+        self.embedding_size = 768
+         self.generator_hidden_size = 0.33333
+         self.train_batch_size = 256
     #   else:
     #     self.embedding_size = 1024
     #     self.mask_prob = 0.25
