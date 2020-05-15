@@ -26,6 +26,10 @@ class PretrainingConfig(object):
   """Defines pre-training hyperparameters."""
 
   def __init__(self, model_name, data_dir, **kwargs):
+    
+    def __str__(self):
+        return str(self.__class__) + ": " + str(self.__dict__)
+      
     self.model_name = model_name
     self.debug = False  # debug mode for quickly running things
     self.do_train = True  # pre-train ELECTRA
@@ -114,19 +118,20 @@ class PretrainingConfig(object):
       self.embedding_size = 128
     # Here are the hyperparameters we used for larger models; see Table 6 in the
     # paper for the full hyperparameters
-    # else:
-    #   self.max_seq_length = 512
-    #   self.learning_rate = 2e-4
-    #   if self.model_size == "base":
-    #     self.embedding_size = 768
-    #     self.generator_hidden_size = 0.33333
-    #     self.train_batch_size = 256
+    else:
+      self.max_seq_length = 512
+      self.learning_rate = 2e-4
+        if self.model_size == "base":
+          self.embedding_size = 768
+          self.generator_hidden_size = 0.33333
+          self.train_batch_size = 256
     #   else:
     #     self.embedding_size = 1024
     #     self.mask_prob = 0.25
     #     self.train_batch_size = 2048
 
     # passed-in-arguments override (for example) debug-mode defaults
+    print(self)
     self.update(kwargs)
 
   def update(self, kwargs):
