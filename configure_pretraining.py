@@ -84,11 +84,11 @@ class PretrainingConfig(object):
 
     # TPU settings
     self.use_tpu = False
-    #self.num_tpu_cores = 8
-    #self.tpu_job_name = None
-    #self.tpu_name = "electra"  # cloud TPU to use for training
-    #self.tpu_zone = "europe-west4-a"  # GCE zone where the Cloud TPU is located in
-    #self.gcp_project = "spanish-electra"  # project name for the Cloud TPU-enabled project
+    self.num_tpu_cores = 1
+    self.tpu_job_name = None
+    self.tpu_name = None  # cloud TPU to use for training
+    self.tpu_zone = None  # GCE zone where the Cloud TPU is located in
+    self.gcp_project = None  # project name for the Cloud TPU-enabled project
 
     # default locations of data files
     self.pretrain_tfrecords = os.path.join(
